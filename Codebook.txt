@@ -1,0 +1,115 @@
+www.smartlab.ws
+==================================================================
+Background information
+
+The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. 
+Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) 
+wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 
+we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. 
+The experiments have been video-recorded to label the data manually. 
+
+The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected 
+for generating the training data and 30% the test data. In this project, train and test sets are combined to one set
+
+The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled 
+in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, 
+which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body 
+acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a 
+filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating 
+variables from the time and frequency domain. 
+
+
+Feature Selection 
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
+These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
+Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
+Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) 
+using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). 
+Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. 
+Note the 'f' to indicate frequency domain signals). 
+These signals were used to estimate variables of the feature vector for each pattern; 
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+
+R script and TidyDataSet
+
+The R script run_analysis.R creates a subdataset of the original data set, encompassing the following steps: 
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names. 
+5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+
+
+Variables in TidyDataSet
+[1] "Subject"                                              
+ [2] "Activity"                                             
+ [3] "Body acceleration in time (Mean) on X-axis"           
+ [4] "Body acceleration in time (Mean) on Y-axis"           
+ [5] "Body acceleration in time (Mean) on Z-axis"           
+ [6] "Body acceleration in time (Std) on X-axis"            
+ [7] "Body acceleration in time (Std) on Y-axis"            
+ [8] "Body acceleration in time (Std) on Z-axis"            
+ [9] "Gravitational acceleration in time (Mean) on X-axis"  
+[10] "Gravitational acceleration in time (Mean) on Y-axis"  
+[11] "Gravitational acceleration in time (Mean) on Z-axis"  
+[12] "Gravitational acceleration in time (Std) on X-axis"   
+[13] "Gravitational acceleration in time (Std) on Y-axis"   
+[14] "Gravitational acceleration in time (Std) on Z-axis"   
+[15] "Body acceleration jerk in time (Mean) on X-axis"      
+[16] "Body acceleration jerk in time (Mean) on Y-axis"      
+[17] "Body acceleration jerk in time (Mean) on Z-axis"      
+[18] "Body acceleration jerk in time (Std) on X-axis"       
+[19] "Body acceleration jerk in time (Std) on Y-axis"       
+[20] "Body acceleration jerk in time (Std) on Z-axis"       
+[21] "Body gyroscope signal in time (Mean) on X-axis"       
+[22] "Body gyroscope signal in time (Mean) on Y-axis"       
+[23] "Body gyroscope signal in time (Mean) on Z-axis"       
+[24] "Body gyroscope signal in time (Std) on X-axis"        
+[25] "Body gyroscope signal in time (Std) on Y-axis"        
+[26] "Body gyroscope signal in time (Std) on Z-axis"        
+[27] "Body gyroscope jerk signal in time (Mean) on X-axis"  
+[28] "Body gyroscope jerk signal in time (Mean) on Y-axis"  
+[29] "Body gyroscope jerk signal in time (Mean) on Z-axis"  
+[30] "Body gyroscope jerk signal in time (Std) on X-axis"   
+[31] "Body gyroscope jerk signal in time (Std) on Y-axis"   
+[32] "Body gyroscope jerk signal in time (Std) on Z-axis"   
+[33] "Body acceleration magnitude in time (Mean)"           
+[34] "Body acceleration magnitude in time (Std)"            
+[35] "Gravitational acceleration magnitude in time (Mean)"  
+[36] "Gravitational acceleration magnitude in time (Std)"   
+[37] "Body acceleration jerk magnitude in time (Mean)"      
+[38] "Body acceleration jerk magnitude in time (Std)"       
+[39] "Body gyroscope signal magnitude in time (Mean)"       
+[40] "Body gyroscope signal magnitude in time (Std)"        
+[41] "Body gyroscope jerk signal magnitude in time (Mean)"  
+[42] "Body gyroscope jerk signal magnitude in time (Std)"   
+[43] "Body acceleration frequency (Mean) on X-axis"         
+[44] "Body acceleration frequency (Mean) on Y-axis"         
+[45] "Body acceleration frequency (Mean) on Z-axis"         
+[46] "Body acceleration frequency (Std) on X-axis"          
+[47] "Body acceleration frequency (Std) on Y-axis"          
+[48] "Body acceleration frequency (Std) on Z-axis"          
+[49] "Body acceleration jerk frequency (Mean) on X-axis"    
+[50] "Body acceleration jerk frequency (Mean) on Y-axis"    
+[51] "Body acceleration jerk frequency (Mean) on Z-axis"    
+[52] "Body acceleration jerk frequency (Std) on X-axis"     
+[53] "Body acceleration jerk frequency (Std) on Y-axis"     
+[54] "Body acceleration jerk frequency (Std) on Z-axis"     
+[55] "Body gyroscope signal frequency (Mean) on X-axis"     
+[56] "Body gyroscope signal frequency (Mean) on Y-axis"     
+[57] "Body gyroscope signal frequency (Mean) on Z-axis"     
+[58] "Body gyroscope signal frequency (Std) on X-axis"      
+[59] "Body gyroscope signal frequency (Std) on Y-axis"      
+[60] "Body gyroscope signal frequency (Std) on Z-axis"      
+[61] "Body acceleration frequency magnitude (Mean)"         
+[62] "Body acceleration frequency magnitude (Std)"          
+[63] "Body acceleration jerk frequency magnitude (Mean)"    
+[64] "Body acceleration jerk frequency magnitude (Std)"     
+[65] "Body gyroscope signal frequency magnitude (Mean)"     
+[66] "Body gyroscope signal frequency magnitude (Std)"      
+[67] "Body gyroscope jerk signal frequency magnitude (Mean)"
+[68] "Body gyroscope jerk signal frequency magnitude (Std)" 
